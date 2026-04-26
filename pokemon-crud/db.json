@@ -1,0 +1,60 @@
+{
+  "pokemons": [
+    {
+      "id": "1",
+      "name": "Pikachu",
+      "type": "Electric",
+      "level": 25,
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10148.png"
+    },
+    {
+      "id": "2",
+      "name": "Bulbasaur",
+      "type": "Grass/Poison",
+      "level": 15,
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+    },
+    {
+      "id": "3",
+      "name": "Charmander",
+      "type": "Fire",
+      "level": 20,
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+    },
+    {
+      "id": "4",
+      "name": "Squirtle",
+      "type": "Water",
+      "level": 18,
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
+    },
+    {
+      "id": "5",
+      "name": "Jigglypuff",
+      "type": "Normal/Fairy",
+      "level": 10,
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png"
+    },
+    {
+      "id": "6",
+      "name": "Gengar",
+      "type": "Ghost/Poison",
+      "level": 30,
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png"
+    },
+    {
+      "id": "7",
+      "name": "Eevee",
+      "type": "Normal",
+      "level": 12,
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png"
+    },
+    {
+      "id": "8",
+      "name": "Snorlax",
+      "type": "Normal",
+      "level": 35,
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png"
+    }
+  ]
+}
