@@ -2,12 +2,12 @@ import { useCreatePokemon, useUpdatePokemon } from "../hooks/usePokemons";
 import type { Pokemon } from "../types/pokemon";
 
 type PokemonFormProps = {
-  actionType?: "create" | "update";
+  isEdit?: boolean;
   pokemon?: Pokemon | null;
   onSuccess?: () => void;
 };
 
-const PokemonForm = ({ actionType, pokemon, onSuccess }: PokemonFormProps) => {
+const PokemonForm = ({ isEdit, pokemon, onSuccess }: PokemonFormProps) => {
   const { mutate: updatePokemon } = useUpdatePokemon();
   const { mutate: createPokemon } = useCreatePokemon();
 
@@ -21,10 +21,10 @@ const PokemonForm = ({ actionType, pokemon, onSuccess }: PokemonFormProps) => {
       imageUrl: (formData.get("imageUrl") ?? "")?.toString().trim(),
     };
 
-    if (actionType === "create") {
-      createPokemon(payload, { onSuccess });
-    } else if (actionType === "update" && pokemon) {
+    if (isEdit && pokemon) {
       updatePokemon({ id: pokemon.id, ...payload }, { onSuccess });
+    } else{
+      createPokemon(payload, { onSuccess });
     }
   };
 
@@ -84,7 +84,7 @@ const PokemonForm = ({ actionType, pokemon, onSuccess }: PokemonFormProps) => {
         <button 
             type="submit"
             className="btn btn-info btn-md mt-3">
-                {actionType === "create" ? "Create" : "Update"}
+              {isEdit ? "Güncelle" : "Ekle"}
         </button>
       </div>
     </form>

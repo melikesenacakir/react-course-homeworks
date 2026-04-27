@@ -12,7 +12,7 @@ const PokemonList = () => {
     const { page, limit } = useSelector((state: RootState) => state.pagination.pokemonPagination)
     const { data: { pokemons = [], totalPages = 1 } = {} , isLoading, isError } = usePokemons(page, limit)
     const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null)
-    const [actionType, setActionType] = useState<"create" | "update">("create")
+    const [isEdit, setIsEdit] = useState(false)
     const deleteModalRef = useRef<HTMLDialogElement>(null)
     const editModalRef = useRef<HTMLDialogElement>(null)
 
@@ -34,10 +34,10 @@ const PokemonList = () => {
     const openEditCreateModal = (pokemon?: Pokemon ) => {
         if (pokemon) {
             setSelectedPokemon(pokemon)
-            setActionType("update")
+            setIsEdit(true)
         } else {
             setSelectedPokemon(null)
-            setActionType("create")
+            setIsEdit(false)
         }
         editModalRef.current?.showModal()
     }
@@ -106,7 +106,7 @@ const PokemonList = () => {
             <EditPokemonModal
                 ref={editModalRef}
                 pokemon={selectedPokemon}
-                actionType={actionType}
+                isEdit={isEdit}
             />
         </div>
   )

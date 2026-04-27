@@ -4,8 +4,8 @@ import type { Pokemon } from "../types/pokemon"
 import PokemonForm from "./PokemonForm"
 
 
-const EditPokemonModal = forwardRef<HTMLDialogElement, { pokemon: Pokemon | null, actionType: string }>(
-    ({ pokemon, actionType }, ref) => { //I combined them edit and create in here
+const EditPokemonModal = forwardRef<HTMLDialogElement, { pokemon: Pokemon | null, isEdit: boolean }>(
+    ({ pokemon, isEdit }, ref) => { //I combined them edit and create in here
 
     const handleSuccess = () => {
         (ref as RefObject<HTMLDialogElement>).current?.close()
@@ -15,12 +15,12 @@ const EditPokemonModal = forwardRef<HTMLDialogElement, { pokemon: Pokemon | null
       <dialog ref={ref} className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg pb-4">
-            Pokemon {actionType === "create" ? "Ekle" : "Güncelle"}
+            Pokemon {isEdit ? "Ekle" : "Güncelle"}
           </h3>
           <PokemonForm
-            actionType={actionType as "create" | "update"}
             pokemon={pokemon}
             onSuccess={handleSuccess}
+            isEdit={isEdit}
           />
         </div>
       </dialog>
